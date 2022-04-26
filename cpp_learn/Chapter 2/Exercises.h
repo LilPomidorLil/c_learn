@@ -4,6 +4,7 @@
 # include <iostream>
 # include <iomanip>   // используется для выравнивания строк в консоли с той стороны, которой нужно
 # include <ctype.h>   // для функции islower(), которая проверяет букву на строчность: 0 - заглавная, иначе все остальные цифры
+# include <cmath>     // для round
 
 void task_1()
 {
@@ -95,4 +96,18 @@ void task_9()
 	c = b * d;
 
 	std::cout << "The sum of fractions is equal to: " << a << "/" << c << std::endl;
+}
+
+void task_10()
+{
+	int pound, shilling, pens;
+	std::cout << "Enter the number of pounds: ";
+	std::cin >> pound;
+	std::cout << "Enter the number of shillings: ";
+	std::cin >> shilling;
+	std::cout << "Enter the number of pence: ";
+	std::cin >> pens;
+
+	float ans = round(((20 * pound + shilling) * 12 + pens) / 2.4) / 10;
+	std::cout << "Decimal pounds: " << "£" << ans / 10 << std::endl;
 }
