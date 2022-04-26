@@ -57,9 +57,9 @@ void task_6()
 	std::cin >> user_request;
 
 	std::cout << std::setiosflags(std::ios::left) << std::setw(15) << "Pound Sterling" << std::setw(15) << user_request / sterling << std::endl
-		<< std::setiosflags(std::ios::left) << std::setw(15) << "Franc" << std::setw(15) << user_request / frank << std::endl
-		<< std::setiosflags(std::ios::left) << std::setw(15) << "German brand" << std::setw(15) << user_request / german << std::endl
-		<< std::setiosflags(std::ios::left) << std::setw(15) << "Japanese Yen" << std::setw(15) << user_request / japan << std::endl;
+		 << std::setw(15) << "Franc" << std::setw(15) << user_request / frank << std::endl
+		 << std::setw(15) << "German brand" << std::setw(15) << user_request / german << std::endl
+		 << std::setw(15) << "Japanese Yen" << std::setw(15) << user_request / japan << std::endl;
 }
 
 void task_7 ()
@@ -70,4 +70,14 @@ void task_7 ()
 	user_request *= 1.8;
 	user_request += 32;
 	std::cout << "The temperature in Fahrenheit is: " << user_request << std::endl;
+}
+
+void task_8()
+{
+	const int pop1 = 8425785, pop2 = 47, pop3 = 9761;
+
+	std::cout << std::setiosflags(std::ios::left) << std::setfill('.') << std::setw(9) << "City" << std::setiosflags(std::ios::right)  << std::setw(20) << "Population" << std::endl
+		<< std::setw(9) << "Moscow" << std::setw(20) << pop1 << std::endl
+		<< std::setw(9) << "Kirov" << std::setw(20) << pop2 << std::endl
+		<< std::setw(9) << "Ugrumovka" << std::setw(20) << pop3 << std::endl;
 }
