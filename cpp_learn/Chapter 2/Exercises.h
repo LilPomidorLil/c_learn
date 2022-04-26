@@ -44,3 +44,20 @@ void task_5()
 	std::cin >> user_request;
 	std::cout << islower(user_request) << std::endl;
 }
+
+void task_6()
+{
+	const float sterling = 1.487;
+	const float frank = 0.172;
+	const float german = 0.584;
+	const float japan = 0.00955;
+
+	float user_request;
+	std::cout << "Enter the number of dollars: " << std::endl;
+	std::cin >> user_request;
+
+	std::cout << std::setiosflags(std::ios::left) << std::setw(15) << "Pound Sterling" << std::setw(15) << user_request / sterling << std::endl
+		<< std::setiosflags(std::ios::left) << std::setw(15) << "Franc" << std::setw(15) << user_request / frank << std::endl
+		<< std::setiosflags(std::ios::left) << std::setw(15) << "German brand" << std::setw(15) << user_request / german << std::endl
+		<< std::setiosflags(std::ios::left) << std::setw(15) << "Japanese Yen" << std::setw(15) << user_request / japan << std::endl;
+}
