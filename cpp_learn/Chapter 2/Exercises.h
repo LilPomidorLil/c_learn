@@ -121,3 +121,23 @@ void task_11()
 		<< std::setw(10) << "Ivanov" << std::setw(10) << "Sergey" << std::setw(20) << "Osinovaya 3" << std::setw(15) << "Naxodka" << std::endl
 		<< std::setw(10) << "Sidorov" << std::setw(10) << "Ivan" << std::setw(20) << "Berezovaya 21" << std::setw(15) << "Kaliningrad" << std::endl;
 }
+
+void task_12()
+{
+	float user_request;
+	int pound;
+	float user_request_frac;
+
+	int shilling, pens;
+
+	std::cout << "Enter the number of decimal pounds: ";
+	std::cin >> user_request;
+
+	pound = static_cast<int>(user_request);
+	user_request_frac = user_request - pound;
+	user_request_frac *= 20;
+	shilling = static_cast<int>(user_request_frac);
+	pens = (user_request_frac - shilling) * 10 + 1;
+
+	std::cout << "The equivalent amount in the old record form: " << pound << "." << shilling << "." << pens << std::endl;
+}
