@@ -81,3 +81,18 @@ void task_8()
 		<< std::setw(9) << "Kirov" << std::setw(20) << pop2 << std::endl
 		<< std::setw(9) << "Ugrumovka" << std::setw(20) << pop3 << std::endl;
 }
+
+void task_9()
+{
+	int a, b, c, d;
+	char dummy;
+
+	std::cout << "Enter the value of 2 fractions via Enter: " << std::endl;
+	std::cin >> a >> dummy >> b;
+	std::cin >> c >> dummy >> d;
+	
+	a = a * d + b * c;
+	c = b * d;
+
+	std::cout << "The sum of fractions is equal to: " << a << "/" << c << std::endl;
+}
