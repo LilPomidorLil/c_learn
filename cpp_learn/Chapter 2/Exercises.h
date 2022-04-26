@@ -61,3 +61,13 @@ void task_6()
 		<< std::setiosflags(std::ios::left) << std::setw(15) << "German brand" << std::setw(15) << user_request / german << std::endl
 		<< std::setiosflags(std::ios::left) << std::setw(15) << "Japanese Yen" << std::setw(15) << user_request / japan << std::endl;
 }
+
+void task_7 ()
+{
+	float user_request;
+	std::cout << "Enter the temperature in Celsius: " << std::endl;
+	std::cin >> user_request;
+	user_request *= 1.8;
+	user_request += 32;
+	std::cout << "The temperature in Fahrenheit is: " << user_request << std::endl;
+}
