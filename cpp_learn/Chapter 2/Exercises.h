@@ -111,3 +111,13 @@ void task_10()
 	float ans = round(((20 * pound + shilling) * 12 + pens) / 2.4) / 10;
 	std::cout << "Decimal pounds: " << "£" << ans / 10 << std::endl;
 }
+
+void task_11()
+{
+	std::cout << std::setiosflags(std::ios::left) << std::setw(10) << "Surname" << std::setw(10) << "Name" << std::setw(20) << "Address" << std::setw(15) << "City" << std::endl
+		<< std::setw(55) << std::setfill('-') << "-" << std::setfill(' ') << std::endl;
+
+	std::cout << std::setiosflags(std::ios::left) << std::setw(10) << "Petrov" << std::setw(10) << "Vasiliy" << std::setw(20) << "Klenovaya 16" << std::setw(15) << "Sankt-Petersburg" << std::endl
+		<< std::setw(10) << "Ivanov" << std::setw(10) << "Sergey" << std::setw(20) << "Osinovaya 3" << std::setw(15) << "Naxodka" << std::endl
+		<< std::setw(10) << "Sidorov" << std::setw(10) << "Ivan" << std::setw(20) << "Berezovaya 21" << std::setw(15) << "Kaliningrad" << std::endl;
+}
