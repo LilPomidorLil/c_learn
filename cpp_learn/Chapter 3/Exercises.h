@@ -151,6 +151,29 @@ void task_5()
 	for (int i = 0; i < 20; i++)
 	{
 		std::cout << std::setw(i) << "" << std::setfill('X') << std::endl;
-
 	}
+}
+
+void task_6()
+{
+	int user_request;
+	unsigned long ans = 1;
+
+	std::cout << "Enter a number: ";
+	std::cin >> user_request;
+
+	do
+	{
+		for (int i = user_request; i > 0; i--)
+		{
+			ans *= i;
+		}
+
+		std::cout << "Factorial = " << ans << std::endl;
+
+		ans = 1;
+
+		std::cout << "Enter a number: ";
+		std::cin >> user_request;
+	} while (user_request != 0);
 }
