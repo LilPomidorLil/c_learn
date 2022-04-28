@@ -267,10 +267,26 @@ void task_8()
 		std::cout << "Continue? [y/n]: ";
 		std::cin >> user_answer;
 	} while (user_answer != 'n');
-	
+}
 
 
-	//std::cout << pound1 << " " << shilling1 << " " << pens1 << std::endl;
-	//std::cout << pound2 << " " << shilling2 << " " << pens2 << std::endl;
+void task_9()
+{
+	int guest, place, ans = 1;
 
+	std::cout << "Specify the number of guests: ";
+	std::cin >> guest;
+	std::cout << std::endl;
+
+	std::cout << "Specify the number of seats: ";
+	std::cin >> place;
+	std::cout << std::endl;
+
+	for (int i = 0; i < place; i++)
+	{
+		ans *= guest;
+		guest--;
+	}
+
+	std::cout << "Total ways: " << ans << std::endl;
 }
