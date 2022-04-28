@@ -159,11 +159,11 @@ void task_6()
 	int user_request;
 	unsigned long ans = 1;
 
-	std::cout << "Enter a number: ";
-	std::cin >> user_request;
-
 	do
 	{
+		std::cout << "Enter a number: ";
+		std::cin >> user_request;
+
 		for (int i = user_request; i > 0; i--)
 		{
 			ans *= i;
@@ -172,8 +172,27 @@ void task_6()
 		std::cout << "Factorial = " << ans << std::endl;
 
 		ans = 1;
-
-		std::cout << "Enter a number: ";
-		std::cin >> user_request;
 	} while (user_request != 0);
+}
+
+void task_7()
+{
+	float init_sum, procent;
+	int years;
+
+	std::cout << "Enter the initial amount: ";
+	std::cin >> init_sum;
+
+	std::cout << "Enter the number of years: ";
+	std::cin >> years;
+
+	std::cout << "Enter the interest rate: ";
+	std::cin >> procent;
+
+	for (int i = 0; i < years; i++)
+	{
+		init_sum *= (1 + procent / 100);
+	}
+
+	std::cout << "Through " << years << " years you will get: " << init_sum << " dollars" << std::endl;
 }
