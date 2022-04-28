@@ -290,3 +290,44 @@ void task_9()
 
 	std::cout << "Total ways: " << ans << std::endl;
 }
+
+bool check_(unsigned long& years, float init_sum, float finish_sum, float& procent)
+{
+	for (int i = 0; i < years; i++)
+	{
+		init_sum *= (1 + procent / 100);
+	}
+
+	if (init_sum >= finish_sum) return 1;
+	
+	return 0;
+}
+
+void task_10()
+{
+	float init_sum, procent, finish_sum;
+	unsigned long l = 0, r = SHRT_MAX, median;
+
+
+	std::cout << "Enter the initial amount: ";
+	std::cin >> init_sum;
+	std::cout << std::endl;
+
+	std::cout << "Enter the finish amount: ";
+	std::cin >> finish_sum;
+	std::cout << std::endl;
+
+	std::cout << "Enter the interest rate: ";
+	std::cin >> procent;
+	std::cout << std::endl;
+
+	while (l < r)
+	{
+		median = (l + r) / 2;
+
+		if (check_(median, init_sum, finish_sum, procent)) r = median;
+		else l = median + 1;
+	}
+
+	std::cout << "You need " << l << " years";
+}
