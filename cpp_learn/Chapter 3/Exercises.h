@@ -196,3 +196,81 @@ void task_7()
 
 	std::cout << "Through " << years << " years you will get: " << init_sum << " dollars" << std::endl;
 }
+
+void input_digit(int& pound, int& shilling, int& pens)
+{
+	char ch;
+	int pound_ = 0, shilling_ = 0;
+
+	while ((ch = _getche()) != '.')
+	{
+		pound_ = pound_ * 10 + ch - '0';
+	}
+
+	pound = pound_;
+
+	while ((ch = _getche()) != '.')
+	{
+		shilling_ = shilling_ * 10 + ch - '0';
+	}
+
+	shilling = shilling_;
+
+	while ((ch = _getche()) != '\r')
+	{
+		pens = pens * 10 + ch - '0';
+	}
+}
+
+void task_8()
+{
+	char user_answer;
+	do
+	{
+		int pound1 = 0, shilling1 = 0, pens1 = 0;
+		int pound2 = 0, shilling2 = 0, pens2 = 0;
+		int shilling_dop = 0, pens_dop = 0;
+		int pound_res = 0, shilling_res = 0, pens_res = 0;
+
+		std::cout << "Enter the first amount: ";
+		input_digit(pound1, shilling1, pens1);
+		std::cout << std::endl;
+
+		std::cout << "Enter the second amount: ";
+		input_digit(pound2, shilling2, pens2);
+		std::cout << std::endl;
+
+		if (pens1 + pens2 >= 12)
+		{
+			pens_res = 0;
+			pens_dop = 1;
+		}
+		else
+		{
+			pens_res = pens1 + pens2;
+		}
+
+		if (shilling1 + shilling2 + pens_dop >= 20)
+		{
+			shilling_res = 0;
+			shilling_dop = 1;
+		}
+		else
+		{
+			shilling_res = shilling1 + shilling2 + pens_dop;
+		}
+
+		pound_res = pound1 + pound2 + pound_res;
+
+		std::cout << "Total: " << pound_res << "." << shilling_res << "." << pens_res << std::endl;
+
+		std::cout << "Continue? [y/n]: ";
+		std::cin >> user_answer;
+	} while (user_answer != 'n');
+	
+
+
+	//std::cout << pound1 << " " << shilling1 << " " << pens1 << std::endl;
+	//std::cout << pound2 << " " << shilling2 << " " << pens2 << std::endl;
+
+}
