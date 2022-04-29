@@ -166,3 +166,29 @@ public:
 		return output;
 	}
 };
+
+struct date
+{
+private:
+	int day; 
+	int month;
+	int year;
+
+public:
+	friend std::istream& operator >> (std::istream& input, date& obj)
+	{
+		/// Обратить особое внмание на 'std::cin.ignore' - первый параметр - длина строки, на которой он будет отлавливать и игнорить указанный во
+		/// 2 параметре значении. Сейчас он работает так -> 
+		/// после крайне введенного значения он ищет среди 2 символов вперед '\n' а затем перестает его искать.
+		
+		std::cout << "Enter a date on format '31/12/2002'" << std::endl;
+		input >> obj.day; input.ignore(2, '/'); input >> obj.month; input.ignore(2, '/'); input >> obj.year;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, date& obj)
+	{
+		output << "Date is " << obj.day << "/" << obj.month << "/" << obj.year << std::endl;
+		return output;
+	}
+};
