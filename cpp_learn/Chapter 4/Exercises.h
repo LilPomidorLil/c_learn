@@ -8,10 +8,12 @@
 /// </summary>
 struct phone
 {
+private:
 	int city;
 	int phone_station;
 	int phone_abonent;
 
+public:
 	phone() : 
 		city(7), phone_station(999), phone_abonent(5716679) {}
 	
@@ -31,4 +33,12 @@ struct phone
 		output << "Your phone is -> +" << struct_.city << "-" << struct_.phone_station << "-" << struct_.phone_abonent << std::endl;
 		return output;
 	}
+};
+
+
+
+
+struct point
+{
+
 };
