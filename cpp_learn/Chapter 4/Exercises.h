@@ -37,7 +37,9 @@ public:
 
 
 
-
+/// <summary>
+/// Задание 2
+/// </summary>
 struct point
 {
 private:
@@ -72,3 +74,70 @@ public:
 		return p3;
 	}
 };
+
+
+
+/// <summary>
+/// Внутреннию интерфейсы для решения подзадач
+/// </summary>
+namespace internal {
+	struct Distance
+	{
+		// 1 фут = 12 дюймам
+		int feet;			// кол-во футов
+		float inches;		// кол-во дюймов
+
+		Distance() :
+			feet(0), inches(0) {}
+	};
+}
+
+
+
+/// <summary>
+/// Задание 3
+/// </summary>
+struct Volume
+{
+private:
+	internal::Distance length;
+	internal::Distance width;
+	internal::Distance height;
+
+	static float volume_calc(Volume& obj)
+	{
+		float volume;
+
+		volume = (obj.length.feet * obj.length.inches) *
+			(obj.width.feet * obj.width.inches) *
+			(obj.height.feet * obj.height.inches);
+
+		return volume;
+	}
+
+public:
+	friend std::istream& operator >> (std::istream& input, Volume& obj)
+	{
+		std::cout << "Enter the 'length' of the room in the format of feet and inches separated by a space ->" << std::endl;
+		input >> obj.length.feet >> obj.length.inches;
+		std::cout << std::endl;
+
+		std::cout << "Enter the 'width' of the room in the format of feet and inches separated by a space ->" << std::endl;
+		input >> obj.width.feet >> obj.width.inches;
+		std::cout << std::endl;
+
+		std::cout << "Enter the 'height' of the room in the format of feet and inches separated by a space ->" << std::endl;
+		input >> obj.height.feet >> obj.height.inches;
+		std::cout << std::endl;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, Volume& obj)
+	{
+		float volume;
+		volume = volume_calc(obj);
+
+		output << "Calculated volume -> " << volume << " square units" << std::endl;
+		return output;
+	}
+}; 
