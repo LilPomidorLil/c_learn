@@ -86,9 +86,6 @@ namespace internal {
 		// 1 фут = 12 дюймам
 		int feet;			// кол-во футов
 		float inches;		// кол-во дюймов
-
-		Distance() :
-			feet(0), inches(0) {}
 	};
 }
 
@@ -141,3 +138,31 @@ public:
 		return output;
 	}
 }; 
+
+
+/// <summary>
+/// Задание 4
+/// </summary>
+struct employee
+{
+private:
+	int number;		// номер сотрудника
+	float salary;   // зарплата
+
+public:
+	friend std::istream& operator >> (std::istream& input, employee& obj)
+	{
+		std::cout << "Enter the employee number: ";
+		input >> obj.number;
+
+		std::cout << "Specify the salary: ";
+		input >> obj.salary;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, employee& obj)
+	{
+		output << "Employee with a number '" << obj.number << "' has a salary in the amount of '" << obj.salary << "' rubles" << std::endl;
+		return output;
+	}
+};
