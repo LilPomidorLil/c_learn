@@ -1,6 +1,8 @@
 ﻿#pragma once
 
 # include <iostream>
+# include <map>
+# include <string>
 
 
 /// <summary>
@@ -167,6 +169,10 @@ public:
 	}
 };
 
+
+/// <summary>
+/// Задание 5
+/// </summary>
 struct date
 {
 private:
@@ -192,3 +198,48 @@ public:
 		return output;
 	}
 };
+
+
+/// <summary>
+/// Задача 6
+/// </summary>
+void task_6()
+{
+	enum etype
+	{
+		laborer,
+		secretary,
+		manager,
+		accountant,
+		executive,
+		researcher
+	};
+
+	std::map<etype, std::string> map =
+	{
+		std::make_pair(laborer, "laborer"),
+		std::make_pair(secretary, "secretary"),
+		std::make_pair(manager, "manager"),
+		std::make_pair(accountant, "accountant"),
+		std::make_pair(executive, "executive"),
+		std::make_pair(researcher, "researcher"),
+	};
+
+	std::map<char, etype> tips =
+	{
+		std::make_pair('l', laborer),
+		std::make_pair('s', secretary),
+		std::make_pair('m', manager),
+		std::make_pair('a', accountant),
+		std::make_pair('e', executive),
+		std::make_pair('r', researcher)
+	};
+
+	char user_request;
+	std::cout << "Enter first letter: ";
+	std::cin >> user_request;
+
+	etype type = tips[user_request];
+
+	std::cout << "Full title of the position: " << map[type] << std::endl;
+}
