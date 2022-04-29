@@ -40,5 +40,35 @@ public:
 
 struct point
 {
+private:
+	float x;
+	float y;
 
+public:
+	point() :
+		x(0), y(0) {}
+
+	point(float X, float Y) :
+		x(X), y(Y) {}
+
+	friend std::istream& operator >> (std::istream& input, point& obj)
+	{
+		std::cout << "Enter 'x' & 'y' coordinate:" << std::endl;
+		input >> obj.x >> obj.y;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, point& obj)
+	{
+		output << "This point coordinate ->" << std::endl << "X = " << obj.x << std::endl << "Y = " << obj.y << std::endl;
+		return output;
+	}
+
+	friend point operator + (point& p1, point& p2)
+	{
+		point p3;
+		p3.x = p1.x + p2.x;
+		p3.y = p1.y + p2.y;
+		return p3;
+	}
 };
