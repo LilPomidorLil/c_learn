@@ -244,6 +244,10 @@ void task_6()
 	std::cout << "Full title of the position: " << map[type] << std::endl;
 }
 
+
+/// <summary>
+/// Задание 7
+/// </summary>
 struct Employee
 {
 private:
@@ -263,6 +267,39 @@ public:
 		output << obj.employee_info << obj.data << std::endl;
 		return output;
 	}
+};
 
+
+/// <summary>
+/// Задание 8
+/// </summary>
+struct fraction
+{
+private:
+	int up;
+	int down;
+
+public:
+	friend std::istream& operator >> (std::istream& input, fraction& obj)
+	{
+		std::cout << "Enter the numerator and denominator of the fraction separated by a space ->" << std::endl;
+		input >> obj.up >> obj.down;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, fraction& obj)
+	{
+		output << "Fraction = " << obj.up << "/" << obj.down << std::endl;
+		return output;
+	}
+
+	friend fraction operator + (fraction& first, fraction& second)
+	{
+		fraction third;
+
+		third.up = (first.up * second.down + first.down * second.up);
+		third.down = (first.down * second.down);
+		return third;
+	}
 };
 
