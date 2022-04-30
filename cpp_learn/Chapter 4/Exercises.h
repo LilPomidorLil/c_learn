@@ -303,3 +303,37 @@ public:
 	}
 };
 
+
+/// <summary>
+/// Задание 9
+/// </summary>
+struct Time
+{
+private:
+	int hours;
+	int minutes;
+	int seconds;
+	long totalsec;
+
+public:
+	// На самом деле конструктор здесь не нужен, но пусть будет.
+	Time() :
+		hours(0), 
+		minutes(0), 
+		seconds(0), 
+		totalsec(0) 
+	{}
+
+	void input()
+	{
+		std::cout << "Enter the time in the format 12:31:56" << std::endl;
+		std::cin >> hours; std::cin.ignore(2, ':'); std::cin >> minutes; std::cin.ignore(2, ':'); std::cin >> seconds;
+	}
+
+	void output()
+	{
+		totalsec = hours * 3600 + minutes * 60 + seconds;
+		std::cout << "Since the beginning of the day has passed " << totalsec << " sec." << std::endl;
+	}
+};
+
