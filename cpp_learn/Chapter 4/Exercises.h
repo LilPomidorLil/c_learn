@@ -243,3 +243,26 @@ void task_6()
 
 	std::cout << "Full title of the position: " << map[type] << std::endl;
 }
+
+struct Employee
+{
+private:
+	employee employee_info;
+	date data;
+
+public:
+	friend std::istream& operator >> (std::istream& input, Employee& obj)
+	{
+		input >> obj.employee_info >> obj.data;
+		std::cout << std::endl;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, Employee& obj)
+	{
+		output << obj.employee_info << obj.data << std::endl;
+		return output;
+	}
+
+};
+
