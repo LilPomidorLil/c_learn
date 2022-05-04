@@ -22,6 +22,9 @@
     <Filter Include="Файлы заголовков\Chapter 4">
       <UniqueIdentifier>{f9ee2c94-e28c-461c-8fc4-9a7742a72eb3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Chapter 5">
+      <UniqueIdentifier>{bc5f7d59-eb94-4543-9359-2fbb216a621b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chapter 2\Exercises.h">
@@ -40,6 +43,12 @@
       <Filter>Файлы заголовков\Chapter 4</Filter>
     </ClInclude>
     <ClInclude Include="Chapter4.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter 5\Exercises.h">
+      <Filter>Файлы заголовков\Chapter 5</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter5.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
