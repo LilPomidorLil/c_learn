@@ -107,7 +107,7 @@ public:
 
 /// <summary>
 /// Задание 4.
-/// Нахождение наиболеьшей длины по структуре.
+/// Нахождение наибольшей длины по структуре.
 /// </summary>
 /// <param name="first"> - структура типа Distance</param>
 /// <param name="second"> - структура типа Distance</param>
@@ -119,4 +119,17 @@ Distance task_4(const Distance& first, const Distance& second)
 
 	if (sum_first >= sum_second) return first;
 	if (sum_first < sum_second) return second;
+}
+
+/// <summary>
+/// Задание 5.
+/// Перевод в секунд текущего времени относительно начала суток.
+/// </summary>
+/// <param name="hour"> - текущий час</param>
+/// <param name="minute"> - текущая минута</param>
+/// <param name="sec"> - текущая секунда</param>
+/// <returns></returns>
+long hms_to_sec(const int hour, const int minute, const int sec)
+{
+	return static_cast<long>(3600 * hour + 60 * minute + sec);
 }
