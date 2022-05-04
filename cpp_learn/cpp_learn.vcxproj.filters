@@ -16,12 +16,30 @@
     <Filter Include="Файлы заголовков\Chapter 2">
       <UniqueIdentifier>{026fed46-f6e7-4155-bf4a-36380c550040}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Chapter 3">
+      <UniqueIdentifier>{6dfd68f7-e552-4d74-a241-c71420e4b4d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Chapter 4">
+      <UniqueIdentifier>{f9ee2c94-e28c-461c-8fc4-9a7742a72eb3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chapter 2\Exercises.h">
       <Filter>Файлы заголовков\Chapter 2</Filter>
     </ClInclude>
     <ClInclude Include="Chapter2.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter 3\Exercises.h">
+      <Filter>Файлы заголовков\Chapter 3</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter3.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter 4\Exercises.h">
+      <Filter>Файлы заголовков\Chapter 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter4.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

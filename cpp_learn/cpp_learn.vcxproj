@@ -140,7 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Chapter 2\Exercises.h" />
+    <ClInclude Include="Chapter 3\Exercises.h" />
+    <ClInclude Include="Chapter 4\Exercises.h" />
     <ClInclude Include="Chapter2.h" />
+    <ClInclude Include="Chapter3.h" />
+    <ClInclude Include="Chapter4.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
