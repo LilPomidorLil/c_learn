@@ -81,3 +81,42 @@ void zeroSmaller(int& first, int& second)
 		second = 0;
 	}
 }
+
+/// <summary>
+/// Для 4 задания структурочка.
+/// </summary>
+struct Distance
+{
+public:
+	int feet;
+	float inches;
+	
+	friend std::istream& operator >> (std::istream& input, Distance& obj)
+	{
+		std::cout << "Enter feet & inches" << std::endl;
+		input >> obj.feet >> obj.inches;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, Distance& obj)
+	{
+		output << "Feet = " << obj.feet << std::endl << "Inches = " << obj.inches << std::endl;
+		return output;
+	}
+};
+
+/// <summary>
+/// Задание 4.
+/// Нахождение наиболеьшей длины по структуре.
+/// </summary>
+/// <param name="first"> - структура типа Distance</param>
+/// <param name="second"> - структура типа Distance</param>
+/// <returns></returns>
+Distance task_4(const Distance& first, const Distance& second)
+{
+	float sum_first = first.feet + 12 * first.inches;
+	float sum_second = second.feet + 12 * second.inches;
+
+	if (sum_first >= sum_second) return first;
+	if (sum_first < sum_second) return second;
+}
