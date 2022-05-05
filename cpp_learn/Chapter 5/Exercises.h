@@ -133,3 +133,45 @@ long hms_to_sec(const int hour, const int minute, const int sec)
 {
 	return static_cast<long>(3600 * hour + 60 * minute + sec);
 }
+
+/// <summary>
+/// Задание 6.
+/// </summary>
+struct Time
+{
+private:
+	int hours;
+	int minute;
+	int sec;
+
+public:
+	Time() :
+		hours(0), minute(0), sec(0) {}
+
+	friend std::istream& operator >> (std::istream& input, Time& obj)
+	{
+		std::cout << "Input 'hours', 'minutes', 'sec' ->" << std::endl;
+		input >> obj.hours >> obj.minute >> obj.sec;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, const Time& obj)
+	{
+		output << obj.hours << " Hours " << obj.minute << " Minute" << obj.sec << " Sec." << std::endl;
+		return output;
+	}
+
+	const unsigned long time_to_secs(const Time& obj)
+	{
+		return static_cast<unsigned long>(3600 * obj.hours + 60 * obj.minute + obj.sec);
+	}
+
+	Time secs_to_time(const unsigned long secs)
+	{
+		Time obj;
+		obj.hours = secs / 3600;
+		obj.minute = (secs - obj.hours * 3600) / 60;
+		obj.sec = secs - obj.hours * 3600 - obj.minute * 60;
+		return obj;
+	}
+};
