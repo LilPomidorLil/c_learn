@@ -175,3 +175,17 @@ public:
 		return obj;
 	}
 };
+
+/// <summary>
+/// Задача 8
+/// </summary>
+/// <typeparam name="Type"></typeparam>
+/// <param name="first"></param>
+/// <param name="second"></param>
+template <typename Type>
+void swap(Type& first, Type& second)
+{
+	Type temporary = first;
+	first = second;
+	second = temporary;
+}
