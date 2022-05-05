@@ -148,6 +148,10 @@ public:
 	Time() :
 		hours(0), minute(0), sec(0) {}
 
+	Time(const int HOURS, const int MINUTE, const int SEC) : 
+		hours(HOURS), minute(MINUTE), sec(SEC) {}
+
+
 	friend std::istream& operator >> (std::istream& input, Time& obj)
 	{
 		std::cout << "Input 'hours', 'minutes', 'sec' ->" << std::endl;
@@ -186,6 +190,19 @@ template <typename Type>
 void swap(Type& first, Type& second)
 {
 	Type temporary = first;
+	first = second;
+	second = temporary;
+}
+
+/// <summary>
+/// Задача 9. 
+/// Своп структур.
+/// </summary>
+/// <param name="first"></param>
+/// <param name="second"></param>
+void swap(Time& first, Time& second)
+{
+	Time temporary = first;
 	first = second;
 	second = temporary;
 }
