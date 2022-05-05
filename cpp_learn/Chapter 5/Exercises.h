@@ -206,3 +206,13 @@ void swap(Time& first, Time& second)
 	first = second;
 	second = temporary;
 }
+
+/// <summary>
+/// Выводит в консоль сколько раз вызывали эту функцию.
+/// За счет статической переменной, которая инициализировалась при первом вызове функции и живет до конца программы.
+/// </summary>
+void task_10()
+{
+	static int count = 0;
+	std::cout << ++count << std::endl;
+}
