@@ -181,3 +181,31 @@ public:
 	}
 };
 
+/// <summary>
+/// Задание 5.
+/// </summary>
+class Date
+{
+private:
+	int day;
+	int month;
+	int year;
+
+public:
+	Date() :
+		day(0), month(0), year(0) {}
+
+	friend std::istream& operator >> (std::istream& input, Date& obj)
+	{
+		std::cout << "Enter date on format ~ DD/MM/YYYY" << std::endl;
+		input >> obj.day; input.ignore(2, '/'); input >> obj.month; input.ignore(2, '/'); input >> obj.year;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, Date& obj)
+	{
+		output << "Date is " << obj.day << "/" << obj.month << "/" << obj.year << std::endl;
+		return output;
+	}
+};
+
