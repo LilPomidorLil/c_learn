@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 # include <iostream>
-# include <conio.h>  // для getche()
 
 /// <summary>
 /// Задача 1. 
@@ -153,3 +152,32 @@ public:
 		}
 	}
 };
+
+/// <summary>
+/// Задание 4.
+/// </summary>
+class Employee
+{
+private:
+	int employee_number;
+	int salary;
+
+public:
+	Employee() :
+		employee_number(0), salary(0) {}
+
+	friend std::istream& operator >> (std::istream& input, Employee& obj)
+	{
+		std::cout << "Enter employee number and salary" << std::endl;
+		input >> obj.employee_number >> obj.salary;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, Employee& obj)
+	{
+		output << "Employee number and salary ";
+		output << obj.employee_number << " " << obj.salary << std::endl;
+		return output;
+	}
+};
+
