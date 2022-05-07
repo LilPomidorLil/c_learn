@@ -156,24 +156,24 @@ public:
 /// <summary>
 /// Задание 4.
 /// </summary>
-class Employee
+class employee
 {
 private:
 	int employee_number;
 	int salary;
 
 public:
-	Employee() :
+	employee() :
 		employee_number(0), salary(0) {}
 
-	friend std::istream& operator >> (std::istream& input, Employee& obj)
+	friend std::istream& operator >> (std::istream& input, employee& obj)
 	{
 		std::cout << "Enter employee number and salary" << std::endl;
 		input >> obj.employee_number >> obj.salary;
 		return input;
 	}
 
-	friend std::ostream& operator << (std::ostream& output, Employee& obj)
+	friend std::ostream& operator << (std::ostream& output, employee& obj)
 	{
 		output << "Employee number and salary ";
 		output << obj.employee_number << " " << obj.salary << std::endl;
@@ -209,3 +209,97 @@ public:
 	}
 };
 
+
+/// <summary>
+/// Задача 6.
+/// Класс employee на стероидах
+/// </summary>
+class Employee
+{
+private:
+	employee empl;
+	Date data;
+
+	enum etype
+	{
+		laborer = 0,
+		secretary,
+		manager,
+		accountant,
+		executive,
+		researcher
+	};
+
+	int work_type;
+
+public:
+	friend std::istream& operator >> (std::istream& input, Employee& obj)
+	{
+		char ch;
+
+		input >> obj.empl >> obj.data;
+		std::cout << "Input first char work: ";
+		input >> ch;
+		switch (ch)
+		{
+		case 'l':
+			obj.work_type = obj.laborer;
+			break;
+
+		case 's':
+			obj.work_type = obj.secretary;
+			break;
+
+		case 'm':
+			obj.work_type = obj.manager;
+			break;
+
+		case 'a':
+			obj.work_type = obj.accountant;
+			break;
+
+		case 'e':
+			obj.work_type = obj.executive;
+			break;
+
+		case 'r':
+			obj.work_type = obj.researcher;
+			break;
+		}
+
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, Employee& obj)
+	{
+		output << obj.empl << obj.data;
+		switch (obj.work_type)
+		{
+		case 0:
+			output << "Work is laborer" << std::endl << std::endl;
+			break;
+
+		case 1:
+			output << "Work is secretary" << std::endl << std::endl;	
+			break;
+
+		case 2:
+			output << "Work is manager" << std::endl << std::endl;	
+			break;
+
+		case 3:
+			output << "Work is accountant" << std::endl << std::endl;		
+			break;
+
+		case 4:
+			output << "Work is executive" << std::endl << std::endl;		
+			break;
+
+		case 5:
+			output << "Work is researcher" << std::endl << std::endl;			
+			break;
+		}
+
+		return output;
+	}
+};
