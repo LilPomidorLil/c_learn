@@ -42,6 +42,9 @@ public:
 	}
 };
 
+/// <summary>
+/// Задание 2.
+/// </summary>
 class toolBooth
 {
 private:
@@ -97,5 +100,56 @@ public:
 		} while (ch != 'S');
 
 		this->display();
+	}
+};
+
+/// <summary>
+/// Задача 3.
+/// </summary>
+class Time
+{
+private:
+	int hour;
+	int minute;
+	int sec;
+
+public:
+	Time() : 
+		hour(0), minute(0), sec(0) {}
+
+	Time(int HOUR, int MINUTE, int SEC) :
+		hour(HOUR), minute(MINUTE), sec(SEC) {}
+
+	void show_data() const
+	{
+		std::cout << hour << ":" << minute << ":" << sec << std::endl;
+	}
+
+	void add_data(const Time& first, const Time& second)
+	{
+		int minute_append = 0, sec_append = 0;
+
+		sec = first.sec + second.sec;
+
+		if (sec >= 60)
+		{
+			sec %= 60;
+			sec_append = 1;
+		}
+
+		minute = first.minute + second.minute + sec_append;
+
+		if (minute >= 60)
+		{
+			minute %= 60;
+			minute_append = 1;
+		}
+
+		hour = first.hour + second.hour + minute_append;
+
+		if (hour >= 24)
+		{
+			hour %= 24;
+		}
 	}
 };
