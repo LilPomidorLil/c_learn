@@ -304,6 +304,9 @@ public:
 	}
 };
 
+/// <summary>
+/// Задание 7.
+/// </summary>
 class angle
 {
 private:
@@ -331,3 +334,25 @@ public:
 		return output;
 	}
 };
+
+/// <summary>
+/// Задание 8.
+/// Получение порядкового номера объекта класса.
+/// </summary>
+class task_8
+{
+private:
+	static int count_obj;
+	int number;
+
+public:
+	task_8()
+	{
+		count_obj++;
+		number = count_obj - 1;
+	}
+
+	int getnumber() { return number; }
+};
+
+int task_8::count_obj = 1;
