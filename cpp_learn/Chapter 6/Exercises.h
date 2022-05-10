@@ -303,3 +303,31 @@ public:
 		return output;
 	}
 };
+
+class angle
+{
+private:
+	int angl;
+	float minute;
+	char direction;
+
+public:
+	angle(int ANGL, float MINUTE, char DIRECTION) :
+		angl(ANGL), minute(MINUTE), direction(DIRECTION) {}
+
+	angle() :
+		angl(0), minute(0), direction('N') {}
+
+	friend std::istream& operator >> (std::istream& input, angle& obj)
+	{
+		std::cout << "Enter coord and direction" << std::endl;
+		input >> obj.angl >> obj.minute >> obj.direction;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, angle& obj)
+	{
+		output << obj.angl << '\xF8' << obj.minute << "'" << " " << obj.direction << std::endl;
+		return output;
+	}
+};
