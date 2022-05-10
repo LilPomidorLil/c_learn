@@ -341,14 +341,14 @@ public:
 /// Задание 8.
 /// Получение порядкового номера объекта класса.
 /// </summary>
-class task_8
+class obj_number
 {
 private:
 	static int count_obj;
 	int number;
 
 public:
-	task_8()
+	obj_number()
 	{
 		count_obj++;
 		number = count_obj - 1;
@@ -357,7 +357,7 @@ public:
 	int getnumber() { return number; }
 };
 
-int task_8::count_obj = 1;
+int obj_number::count_obj = 1;
 
 
 /// <summary>
@@ -423,5 +423,39 @@ public:
 		gcd = tdown;
 		up /= gcd;
 		down /= gcd;
+	}
+};
+
+/// <summary>
+/// Задание 10.
+/// 
+/// Координаты корабля + его порядковый номер в базе.
+/// </summary>
+class ship
+{
+private:
+	obj_number ship_number;
+	angle ship_angle;
+
+public:
+	ship() :
+		ship_number(), ship_angle() {}
+
+	ship(int ANGL, float MINUTE, char DIRECTION) :
+		ship_number(), ship_angle(ANGL, MINUTE, DIRECTION) {}
+
+	friend std::istream& operator >> (std::istream& input, ship& obj)
+	{
+		input >> obj.ship_angle;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, ship& obj)
+	{
+		output << "Info about ship number " << obj.ship_number.getnumber() << std::endl;
+		output << "Coord is " << obj.ship_angle << std::endl;
+		output << "--------------------------------------------------------------------------------";
+		output << std::endl;
+		return output;
 	}
 };
