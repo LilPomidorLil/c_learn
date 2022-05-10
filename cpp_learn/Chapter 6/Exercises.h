@@ -1,6 +1,8 @@
 ﻿#pragma once
 
 # include <iostream>
+# include <cmath>
+# include <stdexcept>
 
 /// <summary>
 /// Задача 1. 
@@ -356,3 +358,70 @@ public:
 };
 
 int task_8::count_obj = 1;
+
+
+/// <summary>
+/// Задание 9.
+/// Сложение дробей и сокращение дроби.
+/// </summary>
+class fraction
+{
+private:
+	int up;
+	int down;
+
+public:
+	fraction() : 
+		up(1), down (1) {}
+
+	fraction(int UP, int DOWN) :
+		up(UP), down(DOWN) {}
+
+	friend std::istream& operator >> (std::istream& input, fraction& obj)
+	{
+		std::cout << "Input up & down fraction in format 'UP/DOWN'" << std::endl;
+		input >> obj.up; input.ignore(2, '/'); input >> obj.down;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, fraction& obj)
+	{
+		output << obj.up << "/" << obj.down << std::endl;
+		return output;
+	}
+
+	fraction operator + (const fraction& another)
+	{
+		int up_, down_;
+		up_ = up * another.down + down * another.up;
+		down_ = down * another.down;
+
+		// сокращаем дробь
+		lowterms(up_, down_);
+
+		return fraction(up_, down_);
+	}
+
+	void lowterms(int& up, int& down)
+	{
+		int tup, tdown, temp, gcd;
+		tup = abs(up);
+		tdown = abs(down);
+
+		if (tdown == 0) { throw std::invalid_argument("Den == 0. Check input"); }
+		else if (tup == 0) { up = 0; down = 1; return; }
+
+		// нахождение нода алгоритмом Евклида.
+
+		while (tup != 0)
+		{
+			if (tup < tdown) { temp = tup; tup = tdown; tdown = temp; }
+
+			tup -= tdown;
+		}
+
+		gcd = tdown;
+		up /= gcd;
+		down /= gcd;
+	}
+};
