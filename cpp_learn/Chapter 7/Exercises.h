@@ -19,4 +19,7 @@ void output_double()
 		<< std::setw(8)								  // длина одной переменной при выводе максимум 8 символов
 		<< a1 << std::endl << a2
 		<< std::endl << a3 << std::endl << a4;
+
+	/// Чтобы убрать флаги (std::ios::...) позднее, использовать resetiosflags
 }
+
