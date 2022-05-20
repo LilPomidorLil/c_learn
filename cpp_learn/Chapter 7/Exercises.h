@@ -45,3 +45,30 @@ void reversit(char string [])
 	}
 }
 
+/// <summary>
+/// Задание 2
+/// </summary>
+class employee
+{
+private:
+	std::string name;
+	long num_employee;
+
+public:
+	employee() :
+		name("andrew"), num_employee(0.0) {}
+
+	friend std::istream& operator >> (std::istream& input, employee& obj)
+	{
+		std::cout << "Enter employee name and number -> " << std::endl;
+		input >> obj.name >> obj.num_employee;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, employee& obj)
+	{
+		output << "Employee name is " << obj.name << ", number is " << obj.num_employee << std::endl;
+		return output;
+	}
+};
+
