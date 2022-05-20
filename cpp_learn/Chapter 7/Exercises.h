@@ -2,6 +2,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include <string> // для strlen
 
 /// <summary>
 /// Вывод чисел (достаточно длинных) в консоль в красивом виде (округление, в нормальном виде и т.д.)
@@ -21,5 +22,26 @@ void output_double()
 		<< std::endl << a3 << std::endl << a4;
 
 	/// Чтобы убрать флаги (std::ios::...) позднее, использовать resetiosflags
+}
+
+template <typename Type>
+void swap(Type& first, Type& second)
+{
+	Type temp = first;
+	first = second;
+	second = temp;
+}
+
+/// <summary>
+/// Задание 1
+/// </summary>
+/// <param name="string"> строка типа char</param>
+void reversit(char string [])
+{
+	int len = strlen(string);
+	for (int i = 0; i < len / 2; i++)
+	{
+		swap(string[i], string[len - i - 1]);
+	}
 }
 
