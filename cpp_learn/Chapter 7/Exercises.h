@@ -72,3 +72,47 @@ public:
 	}
 };
 
+int max_int(int array[], int i)
+{
+	int max = -10000;
+
+	for (int k = 0; k < i; k++)
+	{
+		if (array[k] >= max)
+		{
+			max = array[k];
+		}
+	}
+	return max;
+}
+
+/// <summary>
+/// Задача 4.
+/// </summary>
+void task_4()
+{
+	const int MAX = 10;
+	int array[MAX];
+	char user_answer;
+	int i = 0;
+	int maxint;
+
+	// input
+	do
+	{
+		std::cout << "Enter digit->" << std::endl;
+		std::cin >> array[i];
+		std::cout << "Continue? [y/n]" << std::endl;
+		std::cin >> user_answer;
+		i++;
+	} while (user_answer != 'n');
+
+	// output
+	for (int k = 0; k < i; k++)
+	{
+		std::cout << array[k] << " ";
+	} std::cout << std::endl;
+
+	maxint = max_int(array, i);
+	std::cout << "Max is " << maxint << std::endl;
+}
