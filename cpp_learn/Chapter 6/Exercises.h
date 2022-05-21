@@ -392,14 +392,13 @@ public:
 
 	fraction operator + (const fraction& another)
 	{
-		int up_, down_;
-		up_ = up * another.down + down * another.up;
-		down_ = down * another.down;
+		up = up * another.down + down * another.up;
+		down = down * another.down;
 
 		// сокращаем дробь
-		lowterms(up_, down_);
+		lowterms(up, down);
 
-		return fraction(up_, down_);
+		return fraction(up, down);
 	}
 
 	void lowterms(int& up, int& down)
