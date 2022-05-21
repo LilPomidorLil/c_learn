@@ -116,3 +116,124 @@ void task_4()
 	maxint = max_int(array, i);
 	std::cout << "Max is " << maxint << std::endl;
 }
+
+
+/// <summary>
+/// Класс имитирующий повдение обыкновенных дробей для задания 5.
+/// </summary>
+class fraction
+{
+public:
+	int up;
+	int down;
+
+	fraction() :
+		up(1), down(1) {}
+
+	fraction(int UP, int DOWN) :
+		up(UP), down(DOWN) {}
+
+	friend std::istream& operator >> (std::istream& input, fraction& obj)
+	{
+		std::cout << "Input up & down fraction in format 'UP/DOWN'" << std::endl;
+		input >> obj.up; input.ignore(2, '/'); input >> obj.down;
+		return input;
+	}
+
+	friend std::ostream& operator << (std::ostream& output, fraction& obj)
+	{
+		output << obj.up << "/" << obj.down << std::endl;
+		return output;
+	}
+
+	fraction operator + (const fraction& another)
+	{
+		up = up * another.down + down * another.up;
+		down = down * another.down;
+
+		// сокращаем дробь
+		lowterms(up, down);
+
+		return fraction(up, down);
+	}
+
+	fraction operator += (const fraction& another)
+	{
+		up = up * another.down + down * another.up;
+		down = down * another.down;
+
+		// сокращаем дробь
+		lowterms(up, down);
+
+		return fraction(up, down);
+	}
+
+	fraction operator /= (const int& digit)
+	{
+		int down_;
+		down = down * digit;
+		lowterms(up, down);
+		return fraction(up, down);
+	}
+
+	fraction operator / (const int& digit)
+	{
+		int down_;
+		down = down * digit;
+		lowterms(up, down);
+		return fraction(up, down);
+	}
+
+	void lowterms(int& up, int& down)
+	{
+		int tup, tdown, temp, gcd;
+		tup = abs(up);
+		tdown = abs(down);
+
+		if (tdown == 0) { throw std::invalid_argument("Den == 0. Check input"); }
+		else if (tup == 0) { up = 0; down = 1; return; }
+
+		// нахождение нода алгоритмом Евклида.
+
+		while (tup != 0)
+		{
+			if (tup < tdown) { temp = tup; tup = tdown; tdown = temp; }
+
+			tup -= tdown;
+		}
+
+		gcd = tdown;
+		up /= gcd;
+		down /= gcd;
+	}
+};
+
+/// <summary>
+/// Задание 5
+/// </summary>
+void task_5()
+{
+	const int MAXSIZE = 100;
+	fraction array[MAXSIZE];
+	int user_answer;
+	int i = 0;
+
+	do
+	{
+		fraction obj;
+		std::cin >> obj;
+		array[i] = obj;
+		std::cout << "input 0 if stop" << std::endl;
+		std::cin >> user_answer;
+		i++;
+	} while (user_answer != 0);
+
+	int mean = 0;
+	fraction sum(0, 1);
+	for (int k = 0; k < i; k++)
+	{
+		sum += array[k];
+	}
+	sum /= i;
+	std::cout << sum;
+}
