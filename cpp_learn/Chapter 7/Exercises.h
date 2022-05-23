@@ -241,22 +241,61 @@ void task_5()
 }
 
 
+/// <summary>
+/// Задача 8
+/// </summary>
 class safearay
 {
 private:
-	static const int LIMIT = 10;
+	static const int LIMIT = 3;
 	int array[LIMIT];
 
 public:
-	void put(int index, int num)
+	int put(int index, int num)
 	{
-		if ((index > LIMIT - 1) || (index < 0)) { std::cout << "[class safearay] index of out list"; return; }
+		if ((index > LIMIT - 1) || (index < 0)) { std::cout << "[class safearay] index of out list" << std::endl; return -1; }
 		array[index] = num;
 	}
 
-	int get(int index) const
+	int get(int index)
 	{
 		if ((index > LIMIT - 1) || (index < 0)) { std::cout << "[class safearay] index of out list"; return -1; }
 		return array[index];
+	}
+
+	int get_limit() const
+	{
+		return LIMIT;
+	}
+};
+
+/// <summary>
+/// Задание 9 - очередь
+/// </summary>
+class queue
+{
+private:
+	safearay arr;					// безопасный массив
+	int begin;						// индекс начала очереди
+	int end;						// индекс конца очереди
+	int LIMIT;						// предел по безопасному массиву
+
+public:
+	queue() :
+		begin(0), end(0) 
+	{
+		LIMIT = arr.get_limit();
+	}
+
+	void put(int elem)
+	{
+		arr.put(end++, elem);
+		if (end == LIMIT - 1) { end = 0; }
+	}
+
+	int get()
+	{
+		int firstin = arr.get(begin++);
+		return firstin;
 	}
 };
