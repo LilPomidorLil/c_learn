@@ -3,6 +3,8 @@
 # include <iostream>
 # include <iomanip>
 # include <string> // для strlen
+# include <stdlib.h>
+# include <math.h>
 
 /// <summary>
 /// Вывод чисел (достаточно длинных) в консоль в красивом виде (округление, в нормальном виде и т.д.)
@@ -237,3 +239,24 @@ void task_5()
 	sum /= i;
 	std::cout << sum;
 }
+
+
+class safearay
+{
+private:
+	static const int LIMIT = 10;
+	int array[LIMIT];
+
+public:
+	void put(int index, int num)
+	{
+		if ((index > LIMIT - 1) || (index < 0)) { std::cout << "[class safearay] index of out list"; return; }
+		array[index] = num;
+	}
+
+	int get(int index) const
+	{
+		if ((index > LIMIT - 1) || (index < 0)) { std::cout << "[class safearay] index of out list"; return -1; }
+		return array[index];
+	}
+};
